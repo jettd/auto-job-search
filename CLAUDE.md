@@ -20,23 +20,27 @@ base resume per approved listing. Goal: he finds a better job with minimal effor
 | `config/search_criteria.md` | Adzuna query params: keywords, locations, radius |
 | `config/ranking_criteria.md` | Scoring criteria: dealbreakers, fit, desirability, candidate profile |
 | `skills/fetch_listings.py` | Adzuna API wrapper + `parse_search_criteria()` config parser |
-| `skills/extract_listing.py` | Claude call: extracts structured fields from listing description |
+| `skills/extract_listing.py` | Claude call: extracts structured fields + summary from listing |
 | `skills/score_listing.py` | Claude call: scores fit + desirability against ranking criteria |
 | `run_search.py` | Orchestrator: fetch → dedupe → extract → score → write files |
 | `review.py` | Terminal CLI: display scored listings, approve/skip, write to state |
-| `tune_resume.py` | Stage 2: generates tailored resume per approved listing |
+| `tune_resume.py` | Stage 2: generates tailored resume per approved listing (not built) |
+| `rotate.py` | Archive jobs_scored.json and clear for next cycle (not built) |
 | `setup.py` | One-time wizard: interviews user, generates both config files |
+| `scripts/generate_fixtures.py` | One-time: capture real API output into `data/fixtures/` |
 | `data/state.json` | Seen job IDs + lifecycle status (auto-created on first run) |
+| `data/fixtures/` | Committed real API outputs used by integration tests |
 | `ARCHITECTURE.md` | Data flow, schemas, design decisions |
 | `docs/TESTING.md` | Test strategy, fixture approach, how to run tests |
 | `docs/GIT.md` | Branch model, commit style, what is/isn't committed |
 
 ## Pipeline stages
-**Stage 1 — Search & Filter** (mostly built)
+**Stage 1 — Search & Filter** (complete)
 `run_search.py` → `review.py`
 
-**Stage 2 — Resume Tuning** (planned, not yet built)
+**Stage 2 — Resume Tuning** (not yet built)
 `tune_resume.py` — reads approved listing + base resume, outputs tailored resume per job
+`rotate.py` — archives `jobs_scored.json` → `data/archive/`, clears for next cycle
 
 ## Claude skill pattern
 Both `extract_listing.py` and `score_listing.py` follow the same pattern:
@@ -69,10 +73,10 @@ Both are plain markdown. `search_criteria.md` is parsed by Python.
 `ranking_criteria.md` is passed verbatim to Claude as context.
 
 ## What remains to build
-- [ ] `run_search.py` — orchestrator
-- [ ] `review.py` — terminal review CLI (sort by fit or desirability, y/n/skip)
 - [ ] `tune_resume.py` — Stage 2 resume tailoring
-- [ ] Base resume file in `config/` (plain text or markdown)
+- [ ] `rotate.py` — archive and clear jobs_scored.json between review cycles
+- [ ] `config/resume_base.md` — base resume file (manual, provided by user)
+- [ ] `config/search_criteria.example.md` + `config/ranking_criteria.example.md` — sanitized templates
 
 ## Known gotchas
 - `setup.py` search_criteria generation had a prompt issue (claude tried to use tools).

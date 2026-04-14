@@ -24,8 +24,10 @@ auto-job-search/
 │   └── resume_base.md           # Candidate's base resume (plain text, Stage 2 input)
 ├── data/
 │   ├── state.json               # Seen job IDs + lifecycle status (auto-created)
-│   ├── jobs_scored.json         # All scored listings from latest cycle (overwritten each run)
-│   └── jobs_discarded.json      # Dealbreaker listings (audit trail, appended)
+│   ├── jobs_scored.json         # Accumulated scored listings (appended each run)
+│   ├── jobs_discarded.json      # Dealbreaker listings (audit trail, appended)
+│   ├── archive/                 # Rotated jobs_scored.json snapshots (gitignored)
+│   └── fixtures/                # Committed real API outputs used by integration tests
 ├── listings/
 │   └── {job_id}/
 │       ├── listing.json         # Raw listing + extracted fields + scores
@@ -36,8 +38,11 @@ auto-job-search/
 │   └── score_listing.py         # Claude: score fit + desirability vs ranking criteria
 ├── run_search.py                # Orchestrator: fetch → dedupe → extract → score → write
 ├── review.py                    # CLI: display scored listings, approve/skip, update state
-├── tune_resume.py               # Stage 2: generate tailored resume per approved listing
+├── rotate.py                    # Archive jobs_scored.json → data/archive/, clear for next cycle
+├── tune_resume.py               # Stage 2: generate tailored resume per approved listing (not built)
 ├── setup.py                     # One-time wizard: generates both config files via Claude
+├── scripts/
+│   └── generate_fixtures.py     # One-time: capture real API output into data/fixtures/
 ├── .env                         # ADZUNA_APP_ID, ADZUNA_API_KEY
 ├── .env.example
 └── requirements.txt
@@ -108,6 +113,7 @@ State tracked in `data/state.json`, keyed by `job_id` = MD5[:12] of `title|compa
   "apprenticeship_program": false,
   "is_staffing_agency":     false,
   "certifications_required":["OSHA 30"],
+  "summary":                "Fast-paced commercial environment with full benefits. Mentions growth path to journeyman and company vehicle.",
   "location":               "Lincoln, NE"
 }
 ```
