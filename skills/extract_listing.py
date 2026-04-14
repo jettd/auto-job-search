@@ -24,6 +24,7 @@ FIELDS = """
 - apprenticeship_program: boolean — true if listing mentions apprenticeship, sponsorship, or path to licensure
 - is_staffing_agency: boolean — true if this appears to be a staffing/temp agency, not a direct employer
 - certifications_required: array of strings — specific certs mentioned, empty array if none
+- summary: string — 2-3 sentences capturing anything not in the structured fields above: work environment, benefits, growth path, team culture, schedule, or other context worth surfacing during review
 """
 
 EMPTY_RESULT = {
@@ -39,6 +40,7 @@ EMPTY_RESULT = {
     "apprenticeship_program":False,
     "is_staffing_agency":    False,
     "certifications_required": [],
+    "summary": "",
     "location": "",
 }
 
@@ -105,7 +107,8 @@ Respond with only this JSON structure (use null or false for unknown fields):
   "travel_required": false,
   "apprenticeship_program": false,
   "is_staffing_agency": false,
-  "certifications_required": []
+  "certifications_required": [],
+  "summary": ""
 }}"""
 
     raw = _call_claude(prompt)

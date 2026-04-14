@@ -1,0 +1,31 @@
+# --- Secrets & keys ---
+.env
+
+# --- Personal config (candidate profile, locations, pay targets) ---
+# Tracked as *.example.md instead — copy and fill in locally
+config/ranking_criteria.md
+config/search_criteria.md
+
+# --- Runtime state & output ---
+data/state.json
+data/jobs_scored.json
+data/jobs_discarded.json
+data/archive/
+
+# --- Generated listing output ---
+listings/
+
+# --- Session log (contains personal candidate details) ---
+DEVLOG.md
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# --- Conda / venv ---
+*.egg-info/
+dist/
+build/
