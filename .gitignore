@@ -5,11 +5,14 @@
 # Tracked as *.example.md instead — copy and fill in locally
 config/ranking_criteria.md
 config/search_criteria.md
+config/resume_base.md
+# config/resume_template.tex is NOT ignored — committed, layout only, no personal data
 
 # --- Runtime state & output ---
 data/state.json
 data/jobs_scored.json
 data/jobs_discarded.json
+data/jobs_master.json
 data/archive/
 
 # --- Generated listing output ---

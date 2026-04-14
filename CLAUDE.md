@@ -39,8 +39,12 @@ base resume per approved listing. Goal: he finds a better job with minimal effor
 `run_search.py` → `review.py`
 
 **Stage 2 — Resume Tuning** (not yet built)
-`tune_resume.py` — reads approved listing + base resume, outputs tailored resume per job
+`tune_resume.py` — reads approved listing + base resume, outputs `listings/{job_id}/resume.md`
 `rotate.py` — archives `jobs_scored.json` → `data/archive/`, clears for next cycle
+
+Resume format: markdown source → PDF via pandoc + `config/resume_template.tex`.
+Claude edits content (markdown); template owns layout (margins, fonts, spacing).
+Compile: `pandoc resume.md --template config/resume_template.tex --pdf-engine=xelatex -o resume.pdf`
 
 ## Claude skill pattern
 Both `extract_listing.py` and `score_listing.py` follow the same pattern:

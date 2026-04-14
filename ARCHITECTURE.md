@@ -87,9 +87,35 @@ state.json (approved listings)
   tune_resume.py (manual trigger)
        ├── reads listings/{job_id}/listing.json
        ├── reads config/resume_base.md
-       ├── claude --print ──► tailored resume text
+       ├── claude --print ──► tailored resume markdown
        └── writes listings/{job_id}/resume.md
+
+  pandoc (manual, per listing)
+       ├── input:    listings/{job_id}/resume.md
+       ├── template: config/resume_template.tex  (layout, fonts, margins)
+       └── output:   listings/{job_id}/resume.pdf
 ```
+
+### Resume Format Decision
+**Source of truth:** `config/resume_base.md` — plain markdown, Claude-editable.
+**Output:** PDF via pandoc + a shared LaTeX template for layout control.
+
+Why this approach:
+- Claude edits clean markdown (content only, no LaTeX syntax)
+- LaTeX template (`config/resume_template.tex`) owns layout: margins, fonts, spacing, section density
+- Template is written once and rarely changed
+- Produces LaTeX-quality PDFs without Claude touching fragile `.tex` per job
+
+Compile command:
+```bash
+pandoc listings/{job_id}/resume.md \
+  --template config/resume_template.tex \
+  --pdf-engine=xelatex \
+  -o listings/{job_id}/resume.pdf
+```
+
+Dependencies: pandoc + a LaTeX distro (MiKTeX on Windows, TeX Live on Linux/Mac).
+`resume_template.tex` is committed to the repo. `resume_base.md` is gitignored (personal data).
 
 ## Job Lifecycle
 ```
