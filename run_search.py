@@ -71,16 +71,15 @@ def main():
 
     today = date.today().isoformat()
 
-    # --- Load ranking criteria ---
-    ranking_criteria = (CONFIG_DIR / "ranking_criteria.md").read_text(encoding="utf-8")
-
     # --- Fetch or load raw listings ---
     if args.dry_run:
         print("[dry-run] Loading raw listings from fixtures...")
-        raw_listings = load_json(FIXTURES_DIR / "raw_listings.json", [])
+        raw_listings      = load_json(FIXTURES_DIR / "raw_listings.json", [])
         fixture_extracted = load_json(FIXTURES_DIR / "extracted_listings.json", {})
         fixture_scored    = load_json(FIXTURES_DIR / "scored_listings.json", {})
+        ranking_criteria  = None  # not used in dry-run; scoring skipped
     else:
+        ranking_criteria = (CONFIG_DIR / "ranking_criteria.md").read_text(encoding="utf-8")
         config = parse_search_criteria(str(CONFIG_DIR / "search_criteria.md"))
         print(
             f"Fetching listings "

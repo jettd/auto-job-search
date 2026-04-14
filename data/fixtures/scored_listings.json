@@ -1,0 +1,76 @@
+{
+  "ff5598b0ccc9": {
+    "fit_score": 2,
+    "desirability_score": 5,
+    "dealbreaker": false,
+    "dealbreaker_reason": null,
+    "fit_notes": [
+      "Foreman role requires crew leadership experience \u2014 candidate is an apprentice with 1.5 years, not a crew leader; significant level mismatch",
+      "No explicit license or experience minimums listed, so no hard dealbreaker, but foreman-level expectations far exceed candidate's current position",
+      "Commercial/industrial/residential mix aligns with candidate's background in sector, but the seniority gap is the dominant factor"
+    ],
+    "desirability_notes": [
+      "Pay range ($72,800\u2013$104,000 annual) translates to roughly $35\u2013$50/hr \u2014 well above candidate's current $22/hr base, which is attractive in principle",
+      "Local Omaha role with no travel required is a strong positive given candidate's desire to reduce travel burden",
+      "Benefits package (health, 401K, vacation, vehicle/allowance) is solid and suggests an employer that values structured compensation",
+      "Staffing agency placement (Gpac) adds uncertainty \u2014 actual employer terms, pay equity practices, and culture are unknown",
+      "Role is almost certainly out of reach at candidate's current experience level; applying risks wasted effort or signals misrepresentation"
+    ]
+  },
+  "0e2335eef37c": {
+    "fit_score": 7,
+    "desirability_score": 3,
+    "dealbreaker": true,
+    "dealbreaker_reason": "Pay converts to approximately $21.57/hr ($44,859.66 / 2080 hrs), which is below the $22/hr floor. No per diem, mileage, or benefits are mentioned to compensate.",
+    "fit_notes": [
+      "Apprentice license requirement is a strong match for candidate's current level",
+      "No minimum experience requirement \u2014 no gap here",
+      "Commercial work type aligns with candidate's background",
+      "Apprenticeship program flag is a positive fit signal",
+      "BMS/BAS/DDC/HVAC automation is a specialized niche \u2014 candidate's commercial background applies broadly but direct controls experience is unconfirmed"
+    ],
+    "desirability_notes": [
+      "Pay is below the $22/hr floor at ~$21.57/hr annualized \u2014 no compensating benefits mentioned",
+      "Staffing agency placement means temp or temp-to-hire status, which reduces stability \u2014 a meaningful negative given candidate is seeking fair, stable employment",
+      "Local role with no travel required is a genuine positive given candidate's current travel burden",
+      "Apprenticeship program could support credential progression, but no mention of wage ladder or pay tied to certifications",
+      "No pay transparency, union affiliation, or equity signals \u2014 mirrors the kind of employer situation candidate is trying to leave"
+    ]
+  },
+  "9a63499f7a22": {
+    "fit_score": 2,
+    "desirability_score": 3,
+    "dealbreaker": true,
+    "dealbreaker_reason": "Requires Journeyman license as a hard requirement \u2014 candidate is an apprentice-level electrician and does not qualify.",
+    "fit_notes": [
+      "Role explicitly requires Journeyman Electrician license \u2014 candidate holds apprentice-level credentials only, making this a disqualifying mismatch.",
+      "Commercial/solar construction work type aligns with candidate's background, but the license requirement makes fit irrelevant."
+    ],
+    "desirability_notes": [
+      "Pay converts to roughly $19.36/hr annualized ($40,266 / 2080 hrs), which falls below the $22/hr floor \u2014 though GSA per diem rates could partially offset this for a travel role.",
+      "Short-term project (2-3 months) in Emerson, NE with travel required \u2014 does not address candidate's desire for stability or reduced travel.",
+      "No apprenticeship progression, no pay ladder, no mention of advancement \u2014 misses most desirability signals."
+    ]
+  },
+  "25784ec99e21": {
+    "fit_score": 8,
+    "desirability_score": 7,
+    "dealbreaker": false,
+    "dealbreaker_reason": null,
+    "fit_notes": [
+      "Apprentice-level license requirement is a direct match \u2014 no journeyman card needed",
+      "No minimum experience specified; candidate's 1.5 years commercial/industrial background exceeds expectations for an entry-level listing",
+      "Mixed work type aligns with candidate's commercial/industrial background",
+      "Apprenticeship program explicitly mentioned \u2014 strong fit signal per criteria",
+      "Minor fit gap: listing frames itself as entry-level and welcoming to those 'starting their career,' which slightly undersells the candidate's actual experience level"
+    ],
+    "desirability_notes": [
+      "Pay converts to ~$25.54/hr ($53,128 / 2,080 hrs) \u2014 above the $22/hr floor, a modest improvement on base rate",
+      "No travel required and Millard/Douglas County location (Omaha metro) is local \u2014 significant desirability boost given candidate's current travel burden",
+      "Apprenticeship program is a strong positive for growth, progression, and eventual journeyman sponsorship",
+      "Single pay point with no mention of a wage ladder, certification-tied raises, or pay tiers \u2014 vague compensation structure is a mild negative per criteria",
+      "Candidate's current total comp includes per diem and mileage on top of $22/hr base; this listing offers no travel comp, so effective total compensation improvement may be modest \u2014 worth weighing",
+      "No union mention, no relocation assistance (not needed for local role), no explicit pay equity signals \u2014 neutral on those dimensions"
+    ]
+  }
+}
